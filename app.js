@@ -6,8 +6,10 @@ const port = process.env.PORT || 3000;
 const { readFile, writeFile } = require("fs/promises");
 const db = require("./db/db.json");
 const uniqid = require("uniqid");
+const favicon = require("serve-favicon");
 
 app.use(express.static("public"));
+app.use(favicon(__dirname + "/public/favicon.ico"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
